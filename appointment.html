@@ -125,7 +125,10 @@
         }
       }
     }
-
+function prevStep(currentStep) {
+      const prevStep = currentStep - 1;
+      showStep(prevStep);
+    }
     function nextStep(currentStep) {
       // Validate before moving to the next step
       if (validateStep(currentStep)) {
