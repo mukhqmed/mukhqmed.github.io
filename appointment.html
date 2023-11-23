@@ -113,7 +113,19 @@
 
   </div>
   <script>
+function showModal() {
+      // Message to the client
+      const message = "Запись прошла успешно. С нетерпением ждем вас!";
 
+      // Set the message in the modal body
+      document.getElementById("modalBody").innerHTML = message;
+
+      // Show the modal
+      const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+      myModal.show();
+      myModal.hide(); // Hide the modal dialog
+      document.getElementById('myCheckbox').checked = false; // Reset the checkbox state to unchecked
+    }
     // Function to show a specific step and hide others
     function showStep(step) {
       for (let i = 1; i <= 3; i++) {
@@ -220,17 +232,7 @@ function prevStep(currentStep) {
         }
       });
     });
-    function showModal() {
-      // Message to the client
-      const message = "Запись прошла успешно. С нетерпением ждем вас!";
-
-      // Set the message in the modal body
-      document.getElementById("modalBody").innerHTML = message;
-
-      // Show the modal
-      const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-      myModal.show();
-    }
+    
 
   </script>
 </body>
