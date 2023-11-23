@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн запись - Akkurate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="./images/V Akkurate.io">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Онлайн запись</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <a class="navbar-brand" href="./index.html"><img src="./images/V Akkurate.io" alt=""> В Аккурате</a>
+        <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">≡</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">На главную</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section id="step1" class="appointment">
+      <h2>Онлайн запись - Шаг 1</h2>
+      <p>Заполните данные для записи</p>
+      <form id="step1Form">
+        <div class="mb-3">
+          <label class="form-label" for="form6Example1">Имя</label>
+          <input type="text" id="form6Example1" class="form-control" required>
+        </div>
+
+        <button type="button" class="btn btn-warning" onclick="nextStep(1)">Далее</button>
+      </form>
+    </section>
+
+    <section id="step2" class="appointment" style="display: none;">
+      <h2>Онлайн запись - Шаг 2</h2>
+      <p>Дополнительная информация</p>
+      <form id="step2Form">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+          <label for="numberInput" class="form-label">Номер телефона</label>
+          <input type="number" class="form-control" id="numberInput" required>
+        </div>
+        <button type="button" onclick="prevStep(2)" class="btn btn-warning">Назад</button>
+        <button type="button" class="btn btn-warning" onclick="nextStep(2)">Далее</button>
+      </form>
+    </section>
+
+    <section id="step3" class="appointment" style="display: none;">
+      <h2>Онлайн запись - Шаг 3</h2>
+      <p>Выберите дату и время</p>
+      <form id="step3Form">
+        <div class="mb-3">
+          <label for="dateInput" class="form-label">Дата</label>
+          <input type="date" class="form-control" id="dateInput" required>
+        </div>
+        <div class="mb-3">
+          <label for="timeInput" class="form-label">Time</label>
+          <input type="time" class="form-control" id="timeInput" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" id="myCheckbox" class="form-check-input" id="exampleCheck1" required>
+          <label class="form-check-label" for="exampleCheck1">Согласен на сохранение данных</label>
+        </div>
+        <button type="button" onclick="prevStep(3)" class="btn btn-warning">Назад</button>
+        <button type="submit" id="mySubmit" class="btn btn-warning" onclick="showModal()" disabled>Записаться</button>
+      </form>
+    </section>
+    <section class="todoList">
+      <div id="todoList" class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>Ваши пожелания</h3>
+            <input type="text" id="newTask" class="form-control" placeholder="Добавь пожелание">
+            <button id="addTask" class="btn btn-warning">Добавить</button>
+            <ul id="tasks"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <script>
+
+    // Function to show a specific step and hide others
+    function showStep(step) {
+      for (let i = 1; i <= 3; i++) {
+        const stepSection = document.getElementById(`step${i}`);
+        if (i === step) {
+          stepSection.style.display = 'block';
+        } else {
+          stepSection.style.display = 'none';
+        }
+      }
+    }
+
+    function nextStep(currentStep) {
+      // Validate before moving to the next step
+      if (validateStep(currentStep)) {
+        const nextStep = currentStep + 1;
+        showStep(nextStep);
+      }
+    }
+
+    function validateStep(step) {
+      // Validate the fields based on the step
+      if (step === 1) {
+        const nameInput = document.getElementById('form6Example1');
+        if (!nameInput.value.trim()) {
+          alert('Пожалуйста введите ваше имя.');
+          return false;
+        }
+      } else if (step === 2) {
+        const emailInput = document.getElementById('exampleInputEmail1');
+        const numberInput = document.getElementById('numberInput');
+        if (!emailInput.value.trim() || !numberInput.value.trim()) {
+          alert('ВВедите ваш email и номер телефона.');
+          return false;
+        }
+      } else if (step === 3) {
+        const dateInput = document.getElementById('dateInput');
+        const timeInput = document.getElementById('timeInput');
+        const checkbox = document.getElementById('myCheckbox');
+        if (!dateInput.value || !timeInput.value || !checkbox.checked) {
+          alert('Выберите дату и время.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    document.getElementById('step1Form').addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+
+    document.getElementById('step2Form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      nextStep(3);
+    });
+
+    document.getElementById('step3Form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      showModal();
+    });
+    function addTask() {
+      //get element by id='newTask'
+      const taskText = document.getElementById('newTask').value;
+      //if any taskText exists:
+      if (taskText) {
+        const taskList = document.getElementById('tasks');
+        const taskItem = document.createElement('li');
+        //setting the value to html by using tasktext
+        taskItem.innerHTML = `
+            <span>${taskText}</span>
+            <div class="d-flex justify-content-between">
+            <button class="complete btn btn-secondary">Исправлено</button>
+            <button class="delete btn btn-secondary">Удалить</button>
+            </div>
+        `;
+
+        taskList.appendChild(taskItem);
+        document.getElementById('newTask').value = '';
+        const completeBtn = taskItem.querySelector('.complete');
+        const deleteBtn = taskItem.querySelector('.delete');
+        completeBtn.addEventListener('click', () => {
+          taskItem.querySelector('span').classList.toggle('completed');
+        });
+        deleteBtn.addEventListener('click', () => {
+          taskList.removeChild(taskItem);
+        });
+      }
+    }
+    //when click or use 'enter' the input adds
+    document.getElementById('addTask').addEventListener('click', addTask);
+    document.getElementById('newTask').addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') addTask();
+    });
+    //jQuery to disable a "submit" button until the checkbox is clicked
+    $(document).ready(function () {
+      $("#myCheckbox").on("change", function () {
+        if ($(this).is(":checked")) {
+          $("#mySubmit").prop("disabled", false); // Enable the submit button
+        } else {
+          $("#mySubmit").prop("disabled", true); // Disable the submit button
+        }
+      });
+    });
+    function showModal() {
+      // Message to the client
+      const message = "Запись прошла успешно. С нетерпением ждем вас!";
+
+      // Set the message in the modal body
+      document.getElementById("modalBody").innerHTML = message;
+
+      // Show the modal
+      const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+      myModal.show();
+    }
+
+  </script>
+</body>
+
+</html>

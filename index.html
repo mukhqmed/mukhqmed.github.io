@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>V Akkurate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./images/V Akkurate.io">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid" id="myImageContainer">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <a class="navbar-brand" href="./index.html"><img src="./images/V Akkurate.io" alt=""> В Аккурате</a>
+                <button class=" navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">≡</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./about.html"> О нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./price.html">Прайс</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>Стиль, который подчеркнет ваш характер</h1>
+            <a href="./appointment.html" class="btn btn-warning">Записаться сейчас</a>
+            <br>
+            <a href="./feedback.html" type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top"
+                title="Оставьте отзыв о вашем опыте у нас!">Оставить отзыв</a>
+        </section>
+        <details>
+            <summary>Расписание</summary>
+            <ul id="openingHoursList">
+                <li>Понедельник: <span id="mondayHours"></span></li>
+                <li>Вторник: <span id="tuesdayHours"></span></li>
+                <li>Среда: <span id="wednesdayHours"></span></li>
+                <li>Четверг: <span id="thursdayHours"></span></li>
+                <li>Пятница: <span id="fridayHours"></span></li>
+                <li>Суббота: <span id="saturdayHours"></span></li>
+                <li>Воскресение: <span id="sundayHours"></span></li>
+            </ul>
+        </details>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Тема
+            </button>
+            <ul class="dropdown-menu">
+                <button id="colorButton1" class="btn btn-dark">
+                    <i class="far fa-sun icon"></i> Light
+                </button>
+                <button id="colorButton2" class="btn btn-dark">
+                    <i class="fas fa-moon icon"></i> Dark
+                </button>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="d-flex justify-content-end">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> 💈Мужская территория</li>
+                    <li class="list-group-item">💇🏻‍♂️Стрижём и бреем</li>
+                    <li class="list-group-item">⚫️Парфюм David Walker</li>
+                    <li class="list-group-item">🔵MINOXIDIL</li>
+                    <li class="list-group-item">🔴KASPI RED</li>
+                </ul>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a href="./game.html" class="btn btn-warning" style="font-size: 24px; padding: 12px 24px;">Сыграть в
+                    игру!</a>
+            </div>
+        </div>
+        <section class="services">
+            <h2 id="Services">Наши услуги</h2>
+            <br>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./images/haircuts.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-text">Стрижки</h3>
+                                <p class="card-text">Сделайте идеальную стрижку у наших опытных парикмахеров.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./images/beard.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-text">Стрижка бороды</h3>
+                                <p class="card-text">Мы специализируемся на создании самых изысканных тримах для бороды.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./images/shaves.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-text">Бритье</h3>
+                                <p class="card-text">Проведите тщательное и комфортное бритье с нашими профессионалами.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <h2 id="Contact">Контакты</h2>
+            <p id="fadeParagraph">Если у вас есть какие-либо вопросы или вы хотели бы записаться на прием, пожалуйста,
+                не стесняйтесь
+                обращаться к нам.</p>
+            <a href="tel:+77770690103">Номер: 8 777 069 01 03</a>
+            <a href="mailto:info@Vakkurate.com">Email: info@VAkkurate.com</a>
+
+        </section>
+        <div class="d-flex justify-content-end align-items-end">
+            <button id="scrollToTop" class="btn btn-warning">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+        <footer class="bg-dark text-light text-center py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="https://wa.me/+77770690103" target="_blank" class="text-light"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/vakkurate.ekb?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
+                                class="text-light"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0 text-light">&copy; 2023 VAkkurate</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+
+        //JS object and its property
+        const barbershop = {
+            openingHours: {
+                monday: "10:00 - 20:00 ",
+                tuesday: "10:00 - 20:00",
+                wednesday: "10:00 - 20:00",
+                thursday: "10:00 - 20:00",
+                friday: "10:00 - 20:00",
+                saturday: "10:00 - 22:00",
+                sunday: "12:00 - 18:00"
+            },
+        };
+
+        // Function to set the content of HTML elements
+        function setBarbershopInfo() {
+            const openingHours = barbershop.openingHours;
+            document.getElementById("mondayHours").textContent = openingHours.monday;
+            document.getElementById("tuesdayHours").textContent = openingHours.tuesday;
+            document.getElementById("wednesdayHours").textContent = openingHours.wednesday;
+            document.getElementById("thursdayHours").textContent = openingHours.thursday;
+            document.getElementById("fridayHours").textContent = openingHours.friday;
+            document.getElementById("saturdayHours").textContent = openingHours.saturday;
+            document.getElementById("sundayHours").textContent = openingHours.sunday;
+        }
+
+        // Call the function to set barbershop information when the page loads
+        setBarbershopInfo();
+        // Function to change the theme to light
+        function setLightTheme() {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+
+            // Rechange contact section styles for light theme
+            const contactSection = document.querySelector(".contact");
+            contactSection.style.backgroundColor = "";
+            contactSection.style.color = "";
+
+            document.querySelectorAll(".contact a").forEach(function (link) {
+                link.style.color = "#333";
+            });
+
+            // Revert navbar styles for light theme
+            document.querySelector(".navbar").style.backgroundColor = "";
+            document.querySelector(".navbar").style.color = "";
+
+            // Revert card styles for light theme
+            document.querySelectorAll(".card-text").forEach(function (cardText) {
+                cardText.style.color = "";
+            });
+
+            document.querySelectorAll(".btn.btn-warning").forEach(function (btn) {
+                btn.style.backgroundColor = "";
+                btn.style.color = "";
+            });
+
+            document.querySelectorAll("a").forEach(function (link) {
+                link.style.color = "";
+            });
+
+            document.querySelectorAll(".list-group-item").forEach(function (listItem) {
+                listItem.style.backgroundColor = "";
+                listItem.style.color = "";
+            });
+
+            // Remove dark-card class from cards
+            $(".card.dark-card").removeClass("dark-card");
+
+            // Call the function to set barbershop information when the page loads
+            setBarbershopInfo();
+        }
+
+        // Function to change the theme to dark
+        function setDarkTheme() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            document.querySelectorAll(".btn.btn-warning").forEach(function (btn) {
+                btn.style.backgroundColor = "#333";
+                btn.style.color = "white";
+            });
+            document.querySelectorAll("a").forEach(function (link) {
+                link.style.color = "dark";
+            });
+
+            // Update contact section styles for dark theme
+            document.querySelector(".contact").style.backgroundColor = "#333";
+            document.querySelector(".contact").style.color = "white";
+
+            document.querySelectorAll(".contact a").forEach(function (link) {
+                link.style.color = "#f0ad4e"; // Change link color to yellow
+            });
+
+            // Add dark-card class to cards
+            $(".card").addClass("dark-card");
+        }
+
+        document.getElementById("colorButton1").addEventListener("click", function () {
+            setLightTheme();
+        });
+
+        document.getElementById("colorButton2").addEventListener("click", function () {
+            setDarkTheme();
+        });
+
+        // jQuery for scrolling to top
+        $(document).ready(function () {
+            $("#scrollToTop").on("click", function () {
+                $("html, body").animate({ scrollTop: 1 }, "fast");
+            });
+        });
+
+        //pop-up tooltip
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+</body>
+
+</html>
